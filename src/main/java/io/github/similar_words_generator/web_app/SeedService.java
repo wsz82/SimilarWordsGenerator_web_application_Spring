@@ -87,7 +87,7 @@ class SeedService {
                 return new ArrayList<>(setOfWords);
             }
         }
-        return null;
+        return Collections.emptyList();
     }
 
     private void setParameters(String path, int wordsNumber, boolean firstCharAsInInput, boolean lastCharAsInInput, boolean sorted, int minWordLength, int maxWordLength) {

@@ -24,11 +24,8 @@ public class SeedController {
         for (String name : seedsNames) {
             String url = "http://localhost:8080/seeds/" + name;
             builder.append("<p>").append(name).append(" - ").append("<a href=\"").append(url).append("\">generate</a><p>");
-
-            if (seedsNames.indexOf(name) == seedsNames.size() - 1) {
-                builder.append("</body></html>");
-            }
         }
+        builder.append("</body></html>");
         return builder.toString();
     }
 
@@ -49,12 +46,13 @@ public class SeedController {
         builder.append("<html><head/><body><p>");
         for (String word : words) {
             if (words.indexOf(word) == words.size() - 1) {
-                builder.append(word).append("</p></body></html>");
+                builder.append(word);
                 break;
             } else {
                 builder.append(word).append(", ");
             }
         }
+        builder.append("</p></body></html>");
         return builder.toString();
     }
 }
