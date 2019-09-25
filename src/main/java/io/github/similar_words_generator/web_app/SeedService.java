@@ -12,6 +12,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -59,6 +60,20 @@ class SeedService {
         String seedName = fileName.substring(0, fileName.length() - 4);
         Analyser analyser = controller.loadSeed(path);
         seeds.add(new Seed(seedName, analyser));
+    }
+
+    List<String> getSeedsNames() {
+        if (!seeds.isEmpty()) {
+            List<String> seedsNames = new ArrayList<>();
+
+            for (Seed seed : seeds) {
+                String seedName = seed.getName();
+                seedsNames.add(seedName);
+            }
+            return seedsNames;
+        } else {
+            return Collections.emptyList();
+        }
     }
 
     List<String> getWordsFromSeed(String name, int wordsNumber, boolean firstCharAsInInput, boolean lastCharAsInInput, boolean sorted, int minWordLength, int maxWordLength) {
