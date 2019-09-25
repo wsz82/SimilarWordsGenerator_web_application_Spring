@@ -43,16 +43,11 @@ public class SeedController {
 
     private String wordsToHTML(List<String> words) {
         StringBuilder builder = new StringBuilder();
-        builder.append("<html><head/><body><p>");
+        builder.append("<html><head/><body>");
         for (String word : words) {
-            if (words.indexOf(word) == words.size() - 1) {
-                builder.append(word);
-                break;
-            } else {
-                builder.append(word).append(", ");
-            }
+            builder.append("<p>").append(word).append("</p>");
         }
-        builder.append("</p></body></html>");
+        builder.append("</body></html>");
         return builder.toString();
     }
 }
