@@ -21,7 +21,7 @@ public class SeedControllerTests {
     @Autowired
     private MockMvc mockMvc;
 
-    private String path = "/seeds";
+    private String path = "/";
 
     @Test
     public void seedsShouldReturnStatusOK() throws Exception {
@@ -33,7 +33,7 @@ public class SeedControllerTests {
 
     @Test
     public void sampleSeedShouldReturnStatusOK() throws Exception {
-        mockMvc.perform(get(path + "/caves")
+        mockMvc.perform(get(path + "/seeds")
                 .contentType(MediaType.TEXT_HTML)
                 .accept(MediaType.TEXT_HTML))
                 .andExpect(status().isOk());

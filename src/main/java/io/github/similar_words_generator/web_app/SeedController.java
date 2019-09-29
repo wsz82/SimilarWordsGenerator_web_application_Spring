@@ -1,53 +1,56 @@
 package io.github.similar_words_generator.web_app;
 
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
+@Controller
 public class SeedController {
     private final SeedService seedService = new SeedService();
 
-    @RequestMapping("seeds")
-    public String getSeedsList() {
+    @GetMapping("/")
+    public String getSeedsList(@ModelAttribute("model") ModelMap model) {
         List<String> seedsNames = seedService.getSeedsNames();
-        return seedsNamesToHTML(seedsNames);
+        model.addAttribute("seedsList", seedsNames);
+        return "index";
     }
 
-    private String seedsNamesToHTML(List<String> seedsNames) {
-        StringBuilder builder = new StringBuilder();
-
-        builder.append("<html><head/><body>");
-        for (String name : seedsNames) {
-            String url = "http://localhost:8080/seeds/" + name;
-            builder.append("<p>").append(name).append(" - ").append("<a href=\"").append(url).append("\">generate</a><p>");
-        }
-        builder.append("</body></html>");
-        return builder.toString();
-    }
-
-    @RequestMapping("seeds/{name}")
-    public String getWordsFromSeed(@PathVariable("name") String name,
+    @GetMapping("/seeds")
+    public String getWordsFromSeed(@ModelAttribute("model") ModelMap model,
+                                   @RequestParam(value = "name") String name,
                                    @RequestParam(value = "words", defaultValue = "10") int wordsNumber,
-                                   @RequestParam(value = "firstCharAsInInput", defaultValue = "true") boolean firstCharAsInInput,
-                                   @RequestParam(value = "lastCharAsInInput", defaultValue = "true") boolean lastCharAsInInput,
-                                   @RequestParam(value = "sorted", defaultValue = "true") boolean sorted,
-                                   @RequestParam(value = "minWordLength", defaultValue = "0") int minWordLength,
-                                   @RequestParam(value = "maxWordLength", defaultValue = "0") int maxWordLength) {
-        List<String> words = seedService.getWordsFromSeed(name, wordsNumber, firstCharAsInInput, lastCharAsInInput, sorted, minWordLength, maxWordLength);
-        return wordsToHTML(words);
-    }
+                                   @RequestParam(value = "firstSignAsInInput", defaultValue = "no") String firstSignAsInInput,
+                                   @RequestParam(value = "lastSignAsInInput", defaultValue = "no") String lastSignAsInInput,
+                                   @RequestParam(value = "sorted", defaultValue = "no") String sorted,
+                                   @RequestParam(value = "minWordLength", defaultValue = "default") String minWordLength,
+                                   @RequestParam(value = "maxWordLength", defaultValue = "default") String maxWordLength) {
+        boolean firstSignAsInInputBoolean = false;
+        boolean lastSignAsInInputBoolean = false;
+        boolean sortedBoolean = false;
+        int minWordLengthInt = 0;
+        int maxWordLengthInt = 0;
 
-    private String wordsToHTML(List<String> words) {
-        StringBuilder builder = new StringBuilder();
-        builder.append("<html><head/><body>");
-        for (String word : words) {
-            builder.append("<p>").append(word).append("</p>");
+        if (firstSignAsInInput.equals("yes")) {
+            firstSignAsInInputBoolean = true;
         }
-        builder.append("</body></html>");
-        return builder.toString();
+        if (lastSignAsInInput.equals("yes")) {
+            lastSignAsInInputBoolean = true;
+        }
+        if (sorted.equals("yes")) {
+            sortedBoolean = true;
+        }
+        if (!minWordLength.equals("default")) {
+            minWordLengthInt = Integer.parseInt(minWordLength);
+        }
+        if (!maxWordLength.equals("default")) {
+            maxWordLengthInt = Integer.parseInt(maxWordLength);
+        }
+        List<String> words = seedService.getWordsFromSeed(name, wordsNumber, firstSignAsInInputBoolean, lastSignAsInInputBoolean, sortedBoolean, minWordLengthInt, maxWordLengthInt);
+        model.addAttribute("words", words);
+        return "seeds";
     }
 }
