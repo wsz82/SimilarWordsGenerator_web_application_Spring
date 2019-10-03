@@ -1,14 +1,26 @@
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'Magic Cards Normal';
+    src: url('http://localhost:8080/MagicCardsNormal.ttf') format('ttf'),
+        url('http://localhost:8080/MagicCardsNormal.woff') format('woff'),
+        url('http://localhost:8080/MagicCardsNormal.woff2') format('woff2');
+}
+
 html {
-    min-height: 100%;
+    min-height: 100vh;
     margin: 0;
 }
 
 body {
-    min-height: 100%;
+    min-height: 100vh;
     margin: 0;
     background-color: #cce6ff;
-    color: #994f00;
-    font-family: verdana;
+    color: #ab8c51;
+    font-family: Magic Cards Normal, serif;
+    font-size: 130%;
 }
 
 h1 {
@@ -37,7 +49,7 @@ section, aside {
 }
 
 #container {
-    width: 22em;
+    width: 25em;
     float: left;
     background-color: #99ceff;
     border-radius: 1rem;
@@ -45,7 +57,7 @@ section, aside {
 }
 
 #side_bar {
-    width: 13rem;
+    width: 13em;
     float: right;
     background-color: #99ceff;
     border-radius: 1rem;
@@ -55,8 +67,13 @@ section, aside {
     text-align: center;
 }
 
+#main::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
 #footer {
-    clear: both;
     position: -webkit-sticky;
     position: sticky;
     bottom: 0;

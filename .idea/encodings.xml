@@ -2,6 +2,13 @@
 <project version="4">
   <component name="Encoding" defaultCharsetForPropertiesFiles="ISO-8859-1">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/static/MagicCardsNormal.ttf" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/static/MagicCardsNormal.woff" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/static/MagicCardsNormal.woff2" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/static/font_kit/generator_config.txt" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/static/font_kit/magic-demo.html" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/static/font_kit/specimen_files" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/static/font_kit/stylesheet.css" charset="ISO-8859-1" />
     <file url="PROJECT" charset="ISO-8859-1" />
   </component>
 </project>
