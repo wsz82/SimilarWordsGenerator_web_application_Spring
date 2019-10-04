@@ -17,14 +17,24 @@ html {
 body {
     min-height: 100vh;
     margin: 0;
-    background-color: #cce6ff;
+    background-color: #192421;
     color: #ab8c51;
     font-family: Magic Cards Normal, serif;
-    font-size: 130%;
+    font-size: 140%;
+}
+
+a {
+    text-decoration: none;
+    color: #a59a7c;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #333a68;
 }
 
 h1 {
-    color: #663300;
+    color: #a59a7c;
     text-align: center;
 }
 
@@ -35,32 +45,98 @@ ul {
     padding: 0;
 }
 
+fieldset {
+    border-color: orange;
+    border-style: double;
+    border-width: 4px 4px 4px 4px;
+    border-image: url('border_morrowind_small.png') 4 4 4 4 repeat;
+}
+
+input, select {
+    box-sizing: border-box;
+    padding-left: 0.5em;
+
+    font-family: Magic Cards Normal, serif;
+    font-size: 100%;
+    color: #ab8c51;
+
+    background-color: #0d0d0d;
+
+    border-color: orange;
+    border-style: double;
+    border-width: 4px 3px 3px 3px;
+    border-image: url('border_morrowind_smallest.png') 4 3 3 3 repeat;
+}
+
+select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+
+    background: black url('dropdown_morrowind.png') no-repeat right top
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+input[type=checkbox] {
+    padding-left: 5px;
+    padding-right: 5px;
+
+    -webkit-appearance: button;
+
+    background-image: url('button_morrowind_unchecked.png');
+    white-space: nowrap;
+    overflow: hidden;
+    border: none;
+
+    width: 20px;
+    height: 20px;
+}
+
+input[type=checkbox]:checked {
+    background-image: url('button_morrowind_checked.png');
+}
+
+input:hover[type=submit], input:hover[type=reset] {
+    font-size: 150%;
+}
+
+#container, #side_bar, #footer {
+    background-color: #0d0d0d;
+    border-color: orange;
+    border-style: double;
+    border-width: 28px 8px 8px 8px;
+    border-image: url('border_morrowind.png') 28 8 8 8 repeat;
+}
+
 #header {
     min-height: 5vh;
 }
 
 #main {
-    min-height: 85vh;
+    min-height: 75vh;
 }
 
 section, aside {
-    padding: 1em;
-    margin: 2em;
+    margin: 0.5em 2em 0.5em 2em;
+    padding: 0.5em 2em 0.5em 2em;
 }
 
 #container {
     width: 25em;
     float: left;
-    background-color: #99ceff;
-    border-radius: 1rem;
     line-height: 150%;
+}
+
+#container div {
+    padding: 2px;
 }
 
 #side_bar {
     width: 13em;
     float: right;
-    background-color: #99ceff;
-    border-radius: 1rem;
 }
 
 #side_bar p {
@@ -68,18 +144,30 @@ section, aside {
 }
 
 #main::after {
-  content: "";
-  clear: both;
-  display: table;
+    content: "";
+    clear: both;
+    display: table;
 }
 
 #footer {
+    border-right: none;
+    border-bottom: none;
+    border-left: none;
     position: -webkit-sticky;
     position: sticky;
     bottom: 0;
     width: 100%;
-    background-color: #004f99;
     padding-top: 2vh;
     padding-bottom: 2vh;
     text-align: center;
+}
+
+#footer li {
+    margin-left: 48%;
+    max-width: 5em;
+    background-color: #0d0d0d;
+    border-color: orange;
+    border-style: double;
+    border-width: 4px 4px 4px 4px;
+    border-image: url('border_morrowind_small.png') 4 4 4 4 repeat;
 }

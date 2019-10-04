@@ -32,7 +32,6 @@
         <dependency>
             <groupId>io.github.wsz82</groupId>
             <artifactId>similar-words-generator</artifactId>
-            <version>1.2</version>
         </dependency>
     </dependencies>
 
@@ -49,5 +48,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>

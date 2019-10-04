@@ -1,6 +1,6 @@
 # Similar Words Generator web application
 
-Web application for Similar Words Generator.
+Web application for Morrowind Similar Words Generator.
 
 ## Description
 
@@ -13,6 +13,7 @@ Build with Maven. Use Similar Words Generator library io.github.wsz82:similar-wo
 ## Usage
 
 Seeds to generate words are included in project.
+![sample](sample.png)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
