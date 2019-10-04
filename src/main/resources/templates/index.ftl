@@ -18,7 +18,7 @@
             <form action="/seeds" method="get">
                 <fieldset>
                     <legend><h2>Generator parameters:</h2></legend>
-                    <div>
+                    <div id="seeds_select">
                         <label for="name">Seed name:</label>
                         <select name="name" id="name">
                             <#list model["seedsList"] as seed>
