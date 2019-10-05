@@ -33,7 +33,7 @@ public class SeedControllerTests {
 
     @Test
     public void sampleSeedShouldReturnStatusOK() throws Exception {
-        mockMvc.perform(get(path + "/static/seeds")
+        mockMvc.perform(get(path + "/seeds")
                 .contentType(MediaType.TEXT_HTML)
                 .accept(MediaType.TEXT_HTML))
                 .andExpect(status().isOk());
