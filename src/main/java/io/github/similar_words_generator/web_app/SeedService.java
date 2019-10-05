@@ -46,7 +46,7 @@ class SeedService {
     }
 
     private static void readSeedsFile() {
-        Resource seedsResource = new ClassPathResource("seeds");
+        Resource seedsResource = new ClassPathResource("static/seeds");
         try {
             seedsDir = seedsResource.getFile();
         } catch (IOException e) {
