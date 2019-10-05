@@ -29,12 +29,12 @@ class SeedService {
     private String path;
 
     static void initializeSeedsLocation() {
-        readSeedsFile();
+//        readSeedsFile();
         seeds.clear();
         List<String> seedPaths = new ArrayList<>();
 
         try (
-                Stream<Path> walk = Files.walk(Paths.get(seedsDir.getPath()))
+                Stream<Path> walk = Files.walk(Paths.get("file:/app/target/seeds"))
         ) {
             seedPaths = walk
                     .map(e -> e.toAbsolutePath().toString())
