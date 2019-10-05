@@ -1,5 +1,7 @@
 package io.github.similar_words_generator.web_app;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,11 +12,14 @@ import java.util.List;
 
 @Controller
 public class SeedController {
+    private static final Logger logger = LoggerFactory.getLogger(SeedController.class);
     private final SeedService seedService = new SeedService();
 
     @GetMapping("/")
     public String getSeedsList(@ModelAttribute("model") ModelMap model) {
         List<String> seedsNames = seedService.getSeedsNames();
+        logger.info("Seeds list is empty: " + seedsNames.isEmpty());
+        logger.info("Seeds directory: " + SeedService.getSeedsDir().getPath());
         model.addAttribute("seedsList", seedsNames);
         return "index";
     }
