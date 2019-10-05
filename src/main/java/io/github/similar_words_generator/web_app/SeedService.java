@@ -3,6 +3,8 @@ package io.github.similar_words_generator.web_app;
 import io.github.wsz82.Analyser;
 import io.github.wsz82.Controller;
 import io.github.wsz82.ProgramParameters;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 
@@ -19,6 +21,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 class SeedService {
+    private static final Logger logger = LoggerFactory.getLogger(SeedService.class);
     private static final Controller controller = new Controller();
     private static List<Seed> seeds = new ArrayList<>();
     private static File seedsDir;
@@ -52,6 +55,7 @@ class SeedService {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        logger.info("Seeds directory: " + seedsDir.getPath());
     }
 
     private static void addInitSeed(String path) {
@@ -100,5 +104,9 @@ class SeedService {
         parametersBuilder.setMinWordLength(minWordLength);
         parametersBuilder.setMaxWordLength(maxWordLength);
         programParameters = parametersBuilder.build();
+    }
+
+    public static File getSeedsDir() {
+        return seedsDir;
     }
 }
