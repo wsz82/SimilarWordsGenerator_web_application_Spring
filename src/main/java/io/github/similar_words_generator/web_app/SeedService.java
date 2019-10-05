@@ -101,4 +101,8 @@ class SeedService {
         parametersBuilder.setMaxWordLength(maxWordLength);
         programParameters = parametersBuilder.build();
     }
+
+    public static File getSeedsDir() {
+        return seedsDir;
+    }
 }
