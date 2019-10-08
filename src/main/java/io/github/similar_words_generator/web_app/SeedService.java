@@ -3,11 +3,10 @@ package io.github.similar_words_generator.web_app;
 import io.github.wsz82.Analyser;
 import io.github.wsz82.Controller;
 import io.github.wsz82.ProgramParameters;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -46,12 +45,9 @@ class SeedService {
     }
 
     private static void readSeedsFile() {
-        Resource seedsResource = new ClassPathResource("static/seeds");
-        try {
-            seedsDir = seedsResource.getFile();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+        URL pathURL = classLoader.getResource("static/seeds");
+        seedsDir = new File(pathURL.getPath());
     }
 
     private static void addInitSeed(String path) {
