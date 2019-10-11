@@ -4,58 +4,74 @@ import io.github.wsz82.Analyser;
 import io.github.wsz82.Controller;
 import io.github.wsz82.ProgramParameters;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 class SeedService {
     private static final Controller controller = new Controller();
     private static List<Seed> seeds = new ArrayList<>();
-    private static File seedsDir;
-    private ProgramParameters programParameters;
-    private String path;
+    private static ProgramParameters programParameters;
+    private static String path;
+    private static File appDir;
 
-    static void initializeSeedsLocation() {
-        readSeedsFile();
+    void initSeedsLocation() {
+        createLocationForSeeds();
         seeds.clear();
-        List<String> seedPaths = new ArrayList<>();
+        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+        initSeeds(classLoader);
+    }
 
+    private void createLocationForSeeds() {
+        String path = "";
+        path = new File(SeedService.class.getProtectionDomain().getCodeSource().getLocation().getPath()).getParentFile().getParentFile().getParent().replace("file:", "");
+        new File(path).mkdir();
+        appDir = new File(path);
+    }
+
+    private void initSeeds(ClassLoader classLoader) {
+        String[] seedsNames = {"Caves.bin", "Dwemer ruins.bin", "Deadric ruins.bin", "Dunmer strongholds.bin"};
+
+        for (String seedName : seedsNames) {
+            Analyser analyser = new Analyser();
+            try (
+                    InputStream inputStream = classLoader.getResourceAsStream("static/seeds/" + seedName);
+                    ObjectInputStream objectInputStream = new ObjectInputStream(inputStream)
+            ) {
+                analyser = (Analyser) objectInputStream.readObject();
+                addSeedToListOfSeeds(seedName, analyser);
+            } catch (IOException | ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+
+            saveSeed(seedName, analyser);
+        }
+    }
+
+    private void addSeedToListOfSeeds(String seedName, Analyser analyser) {
+        String seedShortenName = seedName.substring(0, seedName.length() - 4);
+        seeds.add(new Seed(seedShortenName, analyser));
+    }
+
+    private void saveSeed(String seedName, Analyser analyser) {
+        String seedsPath = appDir + File.separator + seedName;
+        File seedFile = new File(seedsPath);
+
+        if (seedFile.exists()) {
+            return;
+        }
         try (
-                Stream<Path> walk = Files.walk(Paths.get(seedsDir.getPath()))
+                ObjectOutputStream os = new ObjectOutputStream(new FileOutputStream(seedsPath))
         ) {
-            seedPaths = walk
-                    .map(e -> e.toAbsolutePath().toString())
-                    .filter(e -> e.endsWith(".bin"))
-                    .collect(Collectors.toList());
+            os.writeObject(analyser);
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        for (String path : seedPaths) {
-            addInitSeed(path);
-        }
-    }
-
-    private static void readSeedsFile() {
-        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-        URL pathURL = classLoader.getResource("static/seeds");
-        seedsDir = new File(pathURL.getPath());
-    }
-
-    private static void addInitSeed(String path) {
-        File seedFile = new File(path);
-        String fileName = seedFile.getName();
-        String seedName = fileName.substring(0, fileName.length() - 4);
-        Analyser analyser = controller.loadSeed(path);
-        seeds.add(new Seed(seedName, analyser));
     }
 
     List<String> getSeedsNames() {
@@ -77,7 +93,7 @@ class SeedService {
             if (name.equals(seed.getName())) {
                 Set<String> setOfWords;
 
-                path = seedsDir + "\\" + name + ".bin";
+                path = appDir + File.separator + name + ".bin";
                 setParameters(path, wordsNumber, firstCharAsInInput, lastCharAsInInput, sorted, minWordLength, maxWordLength);
                 setOfWords = controller.generate(programParameters, Controller.GenerateSource.NEW_ANALYSER);
                 return new ArrayList<>(setOfWords);
