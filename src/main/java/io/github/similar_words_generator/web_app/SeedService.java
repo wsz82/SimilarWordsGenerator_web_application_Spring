@@ -32,7 +32,7 @@ class SeedService {
     }
 
     private void initSeeds(ClassLoader classLoader) {
-        String[] seedsNames = {"Caves.bin", "Dwemer ruins.bin", "Deadric ruins.bin", "Dunmer strongholds.bin"};
+        String[] seedsNames = {"Dwemer ruins.bin", "Deadric ruins.bin", "Dunmer strongholds.bin", "Caves.bin"};
 
         for (String seedName : seedsNames) {
             Analyser analyser = new Analyser();
