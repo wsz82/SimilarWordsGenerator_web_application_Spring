@@ -4,9 +4,9 @@
 
 @font-face {
     font-family: 'Magic Cards Normal';
-    src: url('http://localhost:8080/MagicCardsNormal.ttf') format('ttf'),
-        url('http://localhost:8080/MagicCardsNormal.woff') format('woff'),
-        url('http://localhost:8080/MagicCardsNormal.woff2') format('woff2');
+    src: url('MagicCardsNormal.ttf') format('ttf'),
+        url('/MagicCardsNormal.woff') format('woff'),
+        url('MagicCardsNormal.woff2') format('woff2');
 }
 
 html {
