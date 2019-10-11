@@ -69,11 +69,12 @@ input, select {
 }
 
 select {
+    width: 10em;
     -moz-appearance: none;
     -webkit-appearance: none;
     appearance: none;
 
-    background: black url('dropdown_morrowind.png') no-repeat right top
+    background: #0d0d0d url('dropdown_morrowind.png') no-repeat right top
 }
 
 select::-ms-expand {
