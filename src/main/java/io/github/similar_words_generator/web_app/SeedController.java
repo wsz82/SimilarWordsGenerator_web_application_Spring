@@ -59,6 +59,9 @@ public class SeedController implements ErrorController {
         }
         List<String> words = seedService.getWordsFromSeed(name, wordsNumber, firstSignAsInInputBoolean, lastSignAsInInputBoolean, sortedBoolean, minWordLengthInt, maxWordLengthInt);
         model.addAttribute("words", words);
+        List<String> seedsNames = seedService.getSeedsNames();
+        logger.info("Seeds list is empty: " + seedsNames.isEmpty());
+        model.addAttribute("seedsList", seedsNames);
         return "seeds";
     }
 

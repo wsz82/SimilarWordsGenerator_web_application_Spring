@@ -14,50 +14,52 @@
             <p><h1>Similar Words Generator for Morrowind</h1></p>
         </header>
         <div id="main">
-            <section id="container">
-            <form action="/seeds" method="get">
-                <fieldset>
-                    <legend><h2>Generator parameters:</h2></legend>
-                    <div id="seeds_select">
-                        <label for="name">Seed name:</label>
-                        <select name="name" id="name">
-                            <#list model["seedsList"] as seed>
-                                <option selected>
-                                    ${seed}
-                                </option>
-                            </#list>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="words">Number of words:</label>
-                        <input name="words" id="words" value="10">
-                    </div>
-                    <div>
-                        <label for="firstSignAsInInput">Put first sign as in input?</label>
-                        <input type="checkbox" name="firstSignAsInInput" id="firstSignAsInInput" value="yes" checked>
-                    </div>
-                    <div>
-                        <label for="lastSignAsInInput">Put last sign as in input?</label>
-                        <input type="checkbox" name="lastSignAsInInput" id="lastSignAsInInput" value="yes" checked>
-                    </div>
-                    <div>
-                        <label for="sorted">Sort output?</label>
-                        <input type="checkbox" name="sorted" id="sorted" value="yes" checked>
-                    </div>
-                    <div>
-                        <label for="minWordLength">Min. word length:</label>
-                        <input name="minWordLength" id="minWordLength" value="default">
-                    </div>
-                    <div>
-                        <label for="maxWordLength">Max. word length:</label>
-                        <input name="maxWordLength" id="maxWordLength" value="default">
-                    </div>
-                    <div>
-                        <input type="submit" value="Generate words">
-                        <input type="reset" value="Reset">
-                    </div>
-                </fieldset>
-            </form>
+            <section>
+                <div id="parameters">
+                    <form action="/seeds" method="get">
+                        <fieldset>
+                            <legend><h2>Generator parameters:</h2></legend>
+                            <div id="seeds_select">
+                                <label for="name">Seed name:</label>
+                                <select name="name" id="name">
+                                    <#list model["seedsList"] as seed>
+                                    <option selected>
+                                        ${seed}
+                                    </option>
+                                </#list>
+                                </select>
+                            </div>
+                            <div class="input">
+                                <label for="words">Number of words:</label>
+                                <input name="words" id="words" value="10">
+                            </div>
+                            <div class="input">
+                                <label for="firstSignAsInInput">Put first sign as in input?</label>
+                                <input type="checkbox" name="firstSignAsInInput" id="firstSignAsInInput" value="yes" checked>
+                            </div>
+                            <div class="input">
+                                <label for="lastSignAsInInput">Put last sign as in input?</label>
+                                <input type="checkbox" name="lastSignAsInInput" id="lastSignAsInInput" value="yes" checked>
+                            </div>
+                            <div class="input">
+                                <label for="sorted">Sort output?</label>
+                                <input type="checkbox" name="sorted" id="sorted" value="yes" checked>
+                            </div>
+                            <div class="input">
+                                <label for="minWordLength">Min. word length:</label>
+                                <input name="minWordLength" id="minWordLength" value="default">
+                            </div>
+                            <div class="input">
+                                <label for="maxWordLength">Max. word length:</label>
+                                <input name="maxWordLength" id="maxWordLength" value="default">
+                            </div>
+                            <div class="input">
+                                <input type="submit" value="Generate words">
+                                <input type="reset" value="Reset">
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
             </section>
             <aside id="side_bar">
                 <p><label for="useful_links">Useful links:</label></p>

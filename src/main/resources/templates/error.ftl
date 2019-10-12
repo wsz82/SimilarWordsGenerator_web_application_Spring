@@ -14,11 +14,12 @@
     <p><h1>Similar Words Generator for Morrowind</h1></p>
 </header>
 <div id="main">
-    <section id="container">
+    <section>
+        <div id="error">
         <p>${model.time}</p>
         <p>Error status code: ${model.errorStatusCode}</p>
         <p>Probably you put invalid type of input in form or address.</p>
-        </ul>
+        </div>
     </section>
     <aside id="side_bar">
         <p><label for="useful_links">Useful links:</label></p>

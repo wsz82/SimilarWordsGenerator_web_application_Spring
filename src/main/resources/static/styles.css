@@ -104,7 +104,7 @@ input:hover[type=submit], input:hover[type=reset] {
     font-size: 150%;
 }
 
-#container, #side_bar, #footer {
+#parameters, #output, #error, #side_bar, #footer {
     background-color: #0d0d0d;
     border-color: #7b6e51;
     border-style: double;
@@ -120,18 +120,30 @@ input:hover[type=submit], input:hover[type=reset] {
     min-height: 75vh;
 }
 
-section, aside {
+#parameters, #output, #error, aside {
     margin: 0.5em 2em 0.5em 2em;
     padding: 0.5em 2em 0.5em 2em;
 }
 
-#container {
+#parameters {
     width: 25em;
     float: left;
     line-height: 150%;
 }
 
-#container div {
+#output {
+    width: 17em;
+    float: left;
+    line-height: 150%;
+}
+
+#error {
+    width: 30em;
+    float: left;
+    line-height: 150%;
+}
+
+.input {
     padding: 2px;
 }
 
