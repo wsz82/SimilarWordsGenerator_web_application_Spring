@@ -11,7 +11,7 @@
         <script type="text/javascript" src="javascript-reset-form.js"></script>
     </head>
     <body>
-        <header id="header">
+        <header>
             <p><h1>Similar Words Generator for Morrowind</h1></p>
         </header>
         <div id="main">
@@ -78,7 +78,7 @@
                 </ul>
             </aside>
         </div>
-        <footer id="footer">
+        <footer>
             <ul>
                 <li><a href="/">Home</a></li>
             </ul>

@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="/styles.css">
     </head>
     <body>
-        <header id="header">
+        <header>
             <p><h1>Similar Words Generator for Morrowind</h1></p>
         </header>
         <div id="main">
@@ -69,7 +69,7 @@
                 </ul>
             </aside>
         </div>
-        <footer id="footer">
+        <footer>
             <ul>
                 <li><a href="/">Home</a></li>
             </ul>
