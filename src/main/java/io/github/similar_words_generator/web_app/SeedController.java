@@ -22,7 +22,9 @@ public class SeedController implements ErrorController {
     @GetMapping("/")
     public String getSeedsList(@ModelAttribute("model") ModelMap model) {
         List<String> seedsNames = seedService.getSeedsNames();
-        logger.info("Seeds list is empty: " + seedsNames.isEmpty());
+        if (seedsNames.isEmpty()) {
+            logger.info("Seeds list is empty");
+        }
         model.addAttribute("seedsList", seedsNames);
         return "index";
     }
@@ -31,36 +33,54 @@ public class SeedController implements ErrorController {
     public String getWordsFromSeed(@ModelAttribute("model") ModelMap model,
                                    @RequestParam(value = "name") String name,
                                    @RequestParam(value = "words", defaultValue = "10") int wordsNumber,
-                                   @RequestParam(value = "firstSignAsInInput", defaultValue = "no") String firstSignAsInInput,
-                                   @RequestParam(value = "lastSignAsInInput", defaultValue = "no") String lastSignAsInInput,
-                                   @RequestParam(value = "sorted", defaultValue = "no") String sorted,
+                                   @RequestParam(value = "firstSignAsInInput", defaultValue = "false") boolean firstSignAsInInput,
+                                   @RequestParam(value = "lastSignAsInInput", defaultValue = "false") boolean lastSignAsInInput,
+                                   @RequestParam(value = "sorted", defaultValue = "false") boolean sorted,
                                    @RequestParam(value = "minWordLength", defaultValue = "default") String minWordLength,
                                    @RequestParam(value = "maxWordLength", defaultValue = "default") String maxWordLength) {
-        boolean firstSignAsInInputBoolean = false;
-        boolean lastSignAsInInputBoolean = false;
-        boolean sortedBoolean = false;
+        List<String> words;
+        List<String> seedsNames;
         int minWordLengthInt = 0;
         int maxWordLengthInt = 0;
 
-        if (firstSignAsInInput.equals("yes")) {
-            firstSignAsInInputBoolean = true;
+        model.addAttribute("name", name);
+        model.addAttribute("wordsNumber", wordsNumber);
+
+        if (firstSignAsInInput) {
+            model.addAttribute("ifFirstChecked", "checked");
+        } else {
+            model.addAttribute("ifFirstChecked", "unchecked");
         }
-        if (lastSignAsInInput.equals("yes")) {
-            lastSignAsInInputBoolean = true;
+
+        if (lastSignAsInInput) {
+            model.addAttribute("ifLastChecked", "checked");
+        } else {
+            model.addAttribute("ifLastChecked", "unchecked");
         }
-        if (sorted.equals("yes")) {
-            sortedBoolean = true;
+
+        if (sorted) {
+            model.addAttribute("ifSortedChecked", "checked");
+        } else {
+            model.addAttribute("ifSortedChecked", "unchecked");
         }
+
+        model.addAttribute("minWordLength", minWordLength);
+        model.addAttribute("maxWordLength", maxWordLength);
+
         if (!minWordLength.equals("default")) {
             minWordLengthInt = Integer.parseInt(minWordLength);
         }
+
         if (!maxWordLength.equals("default")) {
             maxWordLengthInt = Integer.parseInt(maxWordLength);
         }
-        List<String> words = seedService.getWordsFromSeed(name, wordsNumber, firstSignAsInInputBoolean, lastSignAsInInputBoolean, sortedBoolean, minWordLengthInt, maxWordLengthInt);
+        words = seedService.getWordsFromSeed(name, wordsNumber, firstSignAsInInput, lastSignAsInInput, sorted, minWordLengthInt, maxWordLengthInt);
         model.addAttribute("words", words);
-        List<String> seedsNames = seedService.getSeedsNames();
-        logger.info("Seeds list is empty: " + seedsNames.isEmpty());
+
+        seedsNames = seedService.getSeedsNames();
+        if (seedsNames.isEmpty()) {
+            logger.info("Seeds list is empty");
+        }
         model.addAttribute("seedsList", seedsNames);
         return "seeds";
     }

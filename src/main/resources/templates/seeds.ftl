@@ -8,6 +8,7 @@
         <meta name="keywords" content="name generator, words generator, morrowind" />
         <link rel="icon" type="image/png" href="/favicon.png">
         <link rel="stylesheet" href="styles.css">
+        <script type="text/javascript" src="javascript-reset-form.js"></script>
     </head>
     <body>
         <header id="header">
@@ -24,7 +25,7 @@
                                 <label for="name">Seed name:</label>
                                 <select name="name" id="name">
                                     <#list model["seedsList"] as seed>
-                                    <option selected>
+                                    <option <#if seed == model.name>selected</#if>>
                                         ${seed}
                                     </option>
                                 </#list>
@@ -32,31 +33,31 @@
                             </div>
                             <div class="input">
                                 <label for="words">Number of words:</label>
-                                <input name="words" id="words" value="10">
+                                <input name="words" id="words" value=${model.wordsNumber}>
                             </div>
                             <div class="input">
                                 <label for="firstSignAsInInput">Put first sign as in input?</label>
-                                <input type="checkbox" name="firstSignAsInInput" id="firstSignAsInInput" value="yes" checked>
+                                <input type="checkbox" name="firstSignAsInInput" id="firstSignAsInInput" value="true" ${model.ifFirstChecked}>
                             </div>
                             <div class="input">
                                 <label for="lastSignAsInInput">Put last sign as in input?</label>
-                                <input type="checkbox" name="lastSignAsInInput" id="lastSignAsInInput" value="yes" checked>
+                                <input type="checkbox" name="lastSignAsInInput" id="lastSignAsInInput" value="true" ${model.ifLastChecked}>
                             </div>
                             <div class="input">
                                 <label for="sorted">Sort output?</label>
-                                <input type="checkbox" name="sorted" id="sorted" value="yes" checked>
+                                <input type="checkbox" name="sorted" id="sorted" value="true" ${model.ifSortedChecked}>
                             </div>
                             <div class="input">
                                 <label for="minWordLength">Min. word length:</label>
-                                <input name="minWordLength" id="minWordLength" value="default">
+                                <input name="minWordLength" id="minWordLength" value=${model.minWordLength}>
                             </div>
                             <div class="input">
                                 <label for="maxWordLength">Max. word length:</label>
-                                <input name="maxWordLength" id="maxWordLength" value="default">
+                                <input name="maxWordLength" id="maxWordLength" value=${model.maxWordLength}>
                             </div>
                             <div class="input">
                                 <input type="submit" value="Generate words">
-                                <input type="reset" value="Reset">
+                                <button type="button" onclick="resetForm();">Reset</button>
                             </div>
                         </fieldset>
                     </form>

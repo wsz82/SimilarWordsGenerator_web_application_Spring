@@ -52,7 +52,7 @@ fieldset {
     border-image: url('border_morrowind_small.png') 4 4 4 4 repeat;
 }
 
-input, select {
+input, button, select {
     box-sizing: border-box;
     padding-left: 0.5em;
 
@@ -100,7 +100,7 @@ input[type=checkbox]:checked {
     background-image: url('button_morrowind_checked.png');
 }
 
-input:hover[type=submit], input:hover[type=reset] {
+input:hover[type=submit], button:hover {
     font-size: 150%;
 }
 

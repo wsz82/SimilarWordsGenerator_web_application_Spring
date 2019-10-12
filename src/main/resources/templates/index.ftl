@@ -35,15 +35,15 @@
                             </div>
                             <div class="input">
                                 <label for="firstSignAsInInput">Put first sign as in input?</label>
-                                <input type="checkbox" name="firstSignAsInInput" id="firstSignAsInInput" value="yes" checked>
+                                <input type="checkbox" name="firstSignAsInInput" id="firstSignAsInInput" value="true" checked>
                             </div>
                             <div class="input">
                                 <label for="lastSignAsInInput">Put last sign as in input?</label>
-                                <input type="checkbox" name="lastSignAsInInput" id="lastSignAsInInput" value="yes" checked>
+                                <input type="checkbox" name="lastSignAsInInput" id="lastSignAsInInput" value="true" checked>
                             </div>
                             <div class="input">
                                 <label for="sorted">Sort output?</label>
-                                <input type="checkbox" name="sorted" id="sorted" value="yes" checked>
+                                <input type="checkbox" name="sorted" id="sorted" value="true" checked>
                             </div>
                             <div class="input">
                                 <label for="minWordLength">Min. word length:</label>
