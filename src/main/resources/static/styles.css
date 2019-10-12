@@ -10,12 +10,14 @@
 }
 
 html {
-    min-height: 100vh;
+    min-height: 100%;
+    max-width: 100%;
     margin: 0;
 }
 
 body {
-    min-height: 100vh;
+    min-height: 100%;
+    max-width: 100%;
     margin: 0;
     background-color: #192421;
     color: #ab8c51;
@@ -69,7 +71,7 @@ input, button, select {
 }
 
 select {
-    width: 10em;
+    min-width: 10em;
     -moz-appearance: none;
     -webkit-appearance: none;
     appearance: none;
@@ -100,7 +102,7 @@ input[type=checkbox]:checked {
     background-image: url('button_morrowind_checked.png');
 }
 
-input:hover[type=submit], button:hover {
+input:hover[type=submit], input:hover[type=reset], button:hover {
     font-size: 150%;
 }
 
@@ -112,33 +114,29 @@ input:hover[type=submit], button:hover {
     border-image: url('border_morrowind.png') 28 8 8 8 repeat;
 }
 
-#header {
-    min-height: 5vh;
-}
-
 #main {
-    min-height: 75vh;
+    min-height: 70.5vh;
 }
 
 #parameters, #output, #error, aside {
-    margin: 0.5em 2em 0.5em 2em;
-    padding: 0.5em 2em 0.5em 2em;
+    margin: 0.5vw 1vw 0.5vw 1vw;
+    padding: 0.5vw 1vw 0.5vw 1vw;
 }
 
 #parameters {
-    width: 25em;
+    max-width: 100vw;
     float: left;
     line-height: 150%;
 }
 
 #output {
-    width: 17em;
+    max-width: 100vw;
     float: left;
     line-height: 150%;
 }
 
 #error {
-    width: 30em;
+    max-width: 100vw;
     float: left;
     line-height: 150%;
 }
@@ -148,7 +146,7 @@ input:hover[type=submit], button:hover {
 }
 
 #side_bar {
-    width: 13em;
+    max-width: 100vw;
     float: right;
 }
 
@@ -169,9 +167,11 @@ input:hover[type=submit], button:hover {
     position: -webkit-sticky;
     position: sticky;
     bottom: 0;
-    width: 100%;
+    min-width: 100vw;
+    min-width: 100%;
     padding-top: 2vh;
     padding-bottom: 2vh;
+    margin: 0;
     text-align: center;
 }
 
