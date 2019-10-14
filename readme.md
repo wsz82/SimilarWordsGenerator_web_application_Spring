@@ -14,7 +14,10 @@ Build with Maven. Use Similar Words Generator library io.github.wsz82:similar-wo
 
 <p>The application is released at <a href="https://similarwordsgenerator.herokuapp.com">Heroku hosting</a></p>
 Seeds to generate words are included in project.
+
 ![sample](sample.png)
+
+![sample2](sample2.png)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
