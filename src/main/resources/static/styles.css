@@ -105,7 +105,7 @@ input[type=checkbox]:checked {
 }
 
 input:hover[type=submit], input:hover[type=reset], button:hover {
-    font-size: 150%;
+    color: #a59a7c;
 }
 
 .input {
