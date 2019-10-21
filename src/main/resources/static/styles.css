@@ -99,7 +99,7 @@ fieldset {
     border-image: url('border_morrowind_small.png') 4 4 4 4 repeat;
 }
 
-input, button, select {
+input, button {
     box-sizing: border-box;
     padding-left: 0.5em;
 
@@ -115,20 +115,7 @@ input, button, select {
     border-image: url('border_morrowind_smallest.png') 4 3 3 3 repeat;
 }
 
-select {
-    min-width: 10em;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
-
-    background: #0d0d0d url('dropdown_morrowind.png') no-repeat right top
-}
-
-select::-ms-expand {
-    display: none;
-}
-
-input[type=checkbox] {
+input[type=checkbox], input[type=radio] {
     padding-left: 5px;
     padding-right: 5px;
 
@@ -143,7 +130,7 @@ input[type=checkbox] {
     height: 20px;
 }
 
-input[type=checkbox]:checked {
+input[type=checkbox]:checked, input[type=radio]:checked {
     background-image: url('button_morrowind_checked.png');
 }
 

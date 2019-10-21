@@ -19,15 +19,12 @@
                     <form action="/seeds" method="get">
                         <fieldset>
                             <legend><h2>Generator parameters:</h2></legend>
+                            <p>Location:</p>
                             <div id="seeds_select">
-                                <label for="name">Seed name:</label>
-                                <select name="name" id="name">
-                                    <#list model["seedsList"] as seed>
-                                    <option selected>
-                                        ${seed}
-                                    </option>
-                                </#list>
-                                </select>
+                                <input type="radio" name="name" id="name" value="${model["seedsList"][3]}" checked>${model["seedsList"][3]}<br>
+                                <input type="radio" name="name" value="${model["seedsList"][0]}">${model["seedsList"][0]}<br>
+                                <input type="radio" name="name" value="${model["seedsList"][1]}">${model["seedsList"][1]}<br>
+                                <input type="radio" name="name" value="${model["seedsList"][2]}">${model["seedsList"][2]}<br>
                             </div>
                             <div class="input">
                                 <label for="words">Number of words:</label>
