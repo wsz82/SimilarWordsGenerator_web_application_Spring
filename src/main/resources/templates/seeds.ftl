@@ -8,7 +8,6 @@
         <meta name="keywords" content="name generator, words generator, morrowind" />
         <link rel="icon" type="image/png" href="/favicon.png">
         <link rel="stylesheet" href="styles.css">
-        <script type="text/javascript" src="javascript-reset-form.js"></script>
     </head>
     <body>
         <header>
@@ -82,4 +81,5 @@
             </ul>
         </footer>
     </body>
+    <script type="text/javascript" src="javascript-reset-form.js"></script>
 </html>
