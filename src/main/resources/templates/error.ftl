@@ -11,7 +11,7 @@
     </head>
     <body>
         <header>
-            <p><h1>Similar Words Generator for Morrowind</h1></p>
+            <img src="swg.png" alt="Similar Words Generator For Morrowind"> <!--Font credits: Author: NZdawghaus, Source: Nexusmods -->
         </header>
         <div id="main">
             <section>

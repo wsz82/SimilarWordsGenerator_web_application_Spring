@@ -11,7 +11,7 @@
     </head>
     <body>
         <header>
-            <p><h1>Similar Words Generator for Morrowind</h1></p>
+            <img src="swg.png" alt="Similar Words Generator For Morrowind"> <!--Font credits: Author: NZdawghaus, Source: Nexusmods -->
         </header>
         <div id="main">
             <section>
@@ -21,10 +21,10 @@
                             <legend><h2>Generator parameters:</h2></legend>
                             <p>Location:</p>
                             <div id="seeds_select">
-                                <input type="radio" name="name" id="name" value="${model["seedsList"][3]}" checked>${model["seedsList"][3]}<br>
-                                <input type="radio" name="name" value="${model["seedsList"][0]}">${model["seedsList"][0]}<br>
-                                <input type="radio" name="name" value="${model["seedsList"][1]}">${model["seedsList"][1]}<br>
-                                <input type="radio" name="name" value="${model["seedsList"][2]}">${model["seedsList"][2]}<br>
+                                <input type="radio" name="name" id="name" value="${model["seedsList"][3]}" checked>${model["seedsList"][3]}
+                                <input type="radio" name="name" value="${model["seedsList"][0]}">${model["seedsList"][0]}
+                                <input type="radio" name="name" value="${model["seedsList"][1]}">${model["seedsList"][1]}
+                                <input type="radio" name="name" value="${model["seedsList"][2]}">${model["seedsList"][2]}
                             </div>
                             <div class="input">
                                 <label for="words">Number of words:</label>

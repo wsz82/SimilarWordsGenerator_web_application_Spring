@@ -51,6 +51,9 @@ body {
     max-width: 100%;
     margin: 0;
 
+    background-image: url("background.png");    /*Image credits: Author: NZdawghaus, Source: Nexusmods*/
+    background-size: 100%;
+    background-repeat: repeat-y;
     background-color: #192421;
 
     color: #ab8c51;
@@ -71,7 +74,6 @@ a:hover {
 h1 {
     font-size: 200%;
     font-weight: bold;
-    color: #a59a7c;
     text-align: center;
     padding-top: 4vh;
     padding-bottom: 4vh;
@@ -91,6 +93,11 @@ ul {
     padding: 0;
 }
 
+header img {
+    max-width: 100%;
+    padding: 2vh 2vw 2vh 2vw;
+}
+
 fieldset {
     padding: 2vh;
     border-color: #7b6e51;
@@ -107,7 +114,7 @@ input, button {
     font-size: 100%;
     color: #ab8c51;
 
-    background-color: #0d0d0d;
+    background-color: rgba(13, 13, 13, 0.5);
 
     border-color: #7b6e51;
     border-style: double;
@@ -143,7 +150,7 @@ input:hover[type=submit], input:hover[type=reset], button:hover {
 }
 
 #parameters, #output, #error, #side_bar, footer {
-    background-color: #0d0d0d;
+    background-color: rgba(13, 13, 13, 0.9);
 
     border-color: #7b6e51;
     border-style: double;
@@ -152,7 +159,7 @@ input:hover[type=submit], input:hover[type=reset], button:hover {
 }
 
 #main {
-    min-height: 73vh;
+    min-height: 75.5vh;
 }
 
 #parameters, #output, #error, aside {
@@ -190,6 +197,10 @@ input:hover[type=submit], input:hover[type=reset], button:hover {
 }
 
 footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
     border-right: none;
     border-bottom: none;
     border-left: none;
@@ -208,11 +219,10 @@ footer {
     text-align: center;
 }
 
-footer li {
-    margin-left: 48vw;
-    max-width: 5em;
+footer ul li {
+    padding: 2px 6px 2px 6px;
 
-    background-color: #0d0d0d;
+    background-color: rgba(13, 13, 13, 0.5);
 
     border-color: #7b6e51;
     border-style: double;
