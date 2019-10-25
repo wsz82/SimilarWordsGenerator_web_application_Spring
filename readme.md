@@ -8,7 +8,7 @@ It is a project made with Spring Boot and Maven. The application allows to gener
 
 ## Installation
 
-Build with Maven. Use Similar Words Generator library io.github.wsz82:similar-words-generator:1.2
+Build with Maven. Use Similar Words Generator library io.github.wsz82:similar-words-generator:1.0
 
 ## Usage
 
