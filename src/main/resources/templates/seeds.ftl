@@ -22,10 +22,12 @@
                             <legend><h2>Generator parameters:</h2></legend>
                             <p>Location:</p>
                             <div id="seeds_select">
-                                <input type="radio" name="name" id="name" value="${model["seedsList"][3]}" <#if model["seedsList"][3] == model.name>checked</#if>>${model["seedsList"][3]}
-                                <input type="radio" name="name" value="${model["seedsList"][0]}" <#if model["seedsList"][0] == model.name>checked</#if>>${model["seedsList"][0]}
-                                <input type="radio" name="name" value="${model["seedsList"][1]}" <#if model["seedsList"][1] == model.name>checked</#if>>${model["seedsList"][1]}
+                                <input type="radio" name="name" id="name" value="${model["seedsList"][1]}" <#if model["seedsList"][1] == model.name>checked</#if>>${model["seedsList"][1]}
                                 <input type="radio" name="name" value="${model["seedsList"][2]}" <#if model["seedsList"][2] == model.name>checked</#if>>${model["seedsList"][2]}
+                                <input type="radio" name="name" value="${model["seedsList"][3]}" <#if model["seedsList"][3] == model.name>checked</#if>>${model["seedsList"][3]}
+                                <input type="radio" name="name" value="${model["seedsList"][5]}" <#if model["seedsList"][5] == model.name>checked</#if>>${model["seedsList"][5]}
+                                <input type="radio" name="name" value="${model["seedsList"][4]}" <#if model["seedsList"][4] == model.name>checked</#if>>${model["seedsList"][4]}
+                                <input type="radio" name="name" value="${model["seedsList"][0]}" <#if model["seedsList"][0] == model.name>checked</#if>>${model["seedsList"][0]}
                             </div>
                             <div class="input">
                                 <label for="words">Number of words:</label>

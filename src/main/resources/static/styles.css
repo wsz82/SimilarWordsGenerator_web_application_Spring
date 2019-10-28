@@ -106,6 +106,10 @@ fieldset {
     border-image: url('border_morrowind_small.png') 4 4 4 4 repeat;
 }
 
+#seeds_select {
+    max-width: 26vw;
+}
+
 input, button {
     box-sizing: border-box;
     padding-left: 0.5em;
