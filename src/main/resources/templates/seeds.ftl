@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="This is an application for generating words similar to given input" />
         <meta name="keywords" content="name generator, words generator, morrowind" />
-        <link rel="icon" type="image/png" href="/favicon.png">
+        <link rel="icon" type="image/png" href="favicon.png">
         <link rel="stylesheet" href="styles.css">
     </head>
     <body>
@@ -20,14 +20,18 @@
                     <form action="/seeds" method="get">
                         <fieldset>
                             <legend><h2>Generator parameters:</h2></legend>
-                            <p>Location:</p>
-                            <div id="seeds_select">
-                                <input type="radio" name="name" id="name" value="${model["seedsList"][1]}" <#if model["seedsList"][1] == model.name>checked</#if>>${model["seedsList"][1]}
-                                <input type="radio" name="name" value="${model["seedsList"][2]}" <#if model["seedsList"][2] == model.name>checked</#if>>${model["seedsList"][2]}
-                                <input type="radio" name="name" value="${model["seedsList"][3]}" <#if model["seedsList"][3] == model.name>checked</#if>>${model["seedsList"][3]}
-                                <input type="radio" name="name" value="${model["seedsList"][5]}" <#if model["seedsList"][5] == model.name>checked</#if>>${model["seedsList"][5]}
-                                <input type="radio" name="name" value="${model["seedsList"][4]}" <#if model["seedsList"][4] == model.name>checked</#if>>${model["seedsList"][4]}
-                                <input type="radio" name="name" value="${model["seedsList"][0]}" <#if model["seedsList"][0] == model.name>checked</#if>>${model["seedsList"][0]}
+                            <div class="input">
+                                <label for="name">Location:</label>
+                                <div class="custom-select">
+                                    <select name="name" id="name">
+                                        <option>${model["seedsList"][0]}</option>
+                                        <#list model["seedsList"] as seed>
+                                            <option <#if seed == model.name>selected</#if>>
+                                                ${seed}
+                                            </option>
+                                        </#list>
+                                    </select>
+                                </div>
                             </div>
                             <div class="input">
                                 <label for="words">Number of words:</label>
@@ -82,6 +86,7 @@
                 <li><a href="/">Home</a></li>
             </ul>
         </footer>
+        <script type="text/javascript" src="javascript-reset-form.js"></script>
+        <script type="text/javascript" src="javascript-custom-select.js"></script>
     </body>
-    <script type="text/javascript" src="javascript-reset-form.js"></script>
 </html>

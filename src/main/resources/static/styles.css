@@ -106,8 +106,53 @@ fieldset {
     border-image: url('border_morrowind_small.png') 4 4 4 4 repeat;
 }
 
-#seeds_select {
-    max-width: 26vw;
+.custom-select {
+    width: 99%;
+
+    position: relative;
+    font-family: Magic Cards Normal, serif;
+}
+
+.custom-select select {
+    display: none;
+}
+
+.select-selected {
+    background-color: rgba(13, 13, 13, 0.5);
+    background-image: url('dropdown_morrowind.png');
+
+    border-color: #7b6e51;
+    border-style: double;
+    border-width: 4px 3px 3px 3px;
+    border-image: url('border_morrowind_smallest.png') 4 3 3 3 repeat;
+}
+
+.select-items div,.select-selected {
+    padding-left: 0.5em;
+    cursor: pointer;
+}
+
+.select-items {
+    color: #ab8c51;
+    position: absolute;
+    background-color: #000;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+
+    border-color: #7b6e51;
+    border-style: double;
+    border-width: 4px 3px 3px 3px;
+    border-image: url('border_morrowind_smallest.png') 4 3 3 3 repeat;
+}
+
+.select-hide {
+    display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+    color: #a59a7c;
 }
 
 input, button {
@@ -117,6 +162,8 @@ input, button {
     font-family: Magic Cards Normal, serif;
     font-size: 100%;
     color: #ab8c51;
+
+    cursor: pointer;
 
     background-color: rgba(13, 13, 13, 0.5);
 
@@ -150,6 +197,7 @@ input:hover[type=submit], input:hover[type=reset], button:hover {
 }
 
 .input {
+    max-width: 100%;
     padding: 2px;
 }
 
