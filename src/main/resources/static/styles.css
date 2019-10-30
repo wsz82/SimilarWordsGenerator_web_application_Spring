@@ -163,8 +163,6 @@ input, button {
     font-size: 100%;
     color: #ab8c51;
 
-    cursor: pointer;
-
     background-color: rgba(13, 13, 13, 0.5);
 
     border-color: #7b6e51;
@@ -173,7 +171,17 @@ input, button {
     border-image: url('border_morrowind_smallest.png') 4 3 3 3 repeat;
 }
 
-input[type=checkbox], input[type=radio] {
+button {
+    cursor: pointer;
+}
+
+input[type=submit], input[type=reset] {
+    cursor: pointer;
+}
+
+input[type=checkbox] {
+    cursor: pointer;
+
     padding-left: 5px;
     padding-right: 5px;
 
