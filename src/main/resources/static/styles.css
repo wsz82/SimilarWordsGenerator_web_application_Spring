@@ -219,7 +219,7 @@ input:hover[type=submit], input:hover[type=reset], button:hover {
 }
 
 #main {
-    min-height: 75.5vh;
+    min-height: 77.1vh;
 }
 
 #parameters, #output, #error, aside {
@@ -280,6 +280,8 @@ footer {
 }
 
 footer ul li {
+    display: inline;
+
     padding: 2px 6px 2px 6px;
 
     background-color: rgba(13, 13, 13, 0.5);

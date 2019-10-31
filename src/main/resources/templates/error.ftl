@@ -24,7 +24,6 @@
             <aside id="side_bar">
                 <p><label for="useful_links">Useful links:</label></p>
                 <ul id="useful_links">
-                    <li><a href="https://similarwordsgenerator.herokuapp.com/api/v1/seeds" target="_blank">API</a></li>
                     <li><a href="https://github.com/wsz82/SimilarWordsGenerator_web_application_Spring" target="_blank">Project repository</a></li>
                     <li><a href="https://www.nexusmods.com/morrowind/mods/47050" target="_blank">Desktop version</a></li>
                     <li><a href="https://www.tamriel-rebuilt.org/" target="_blank">Tamriel Rebuilt</a></li>
@@ -34,6 +33,7 @@
         <footer>
             <ul>
                 <li><a href="/">Home</a></li>
+                <li><a href="https://similarwordsgenerator.herokuapp.com/api/v1/seeds" target="_blank">API</a></li>
             </ul>
         </footer>
     </body>
