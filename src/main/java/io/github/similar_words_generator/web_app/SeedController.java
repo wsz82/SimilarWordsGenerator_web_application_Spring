@@ -32,7 +32,7 @@ public class SeedController implements ErrorController {
     @GetMapping("/seeds")
     public String getWordsFromSeed(@ModelAttribute("model") ModelMap model,
                                    @RequestParam(value = "name") String name,
-                                   @RequestParam(value = "words", defaultValue = "10") int wordsNumber,
+                                   @RequestParam(value = "words", defaultValue = "10") String wordsNumber,
                                    @RequestParam(value = "firstSignAsInInput", defaultValue = "false") boolean firstSignAsInInput,
                                    @RequestParam(value = "lastSignAsInInput", defaultValue = "false") boolean lastSignAsInInput,
                                    @RequestParam(value = "sorted", defaultValue = "false") boolean sorted,
@@ -42,6 +42,7 @@ public class SeedController implements ErrorController {
         List<String> seedsNames;
         int minWordLengthInt = 0;
         int maxWordLengthInt = 0;
+        int wordsNumberInt = 0;
 
         model.addAttribute("name", name);
         model.addAttribute("wordsNumber", wordsNumber);
@@ -74,7 +75,8 @@ public class SeedController implements ErrorController {
         if (!maxWordLength.equals("default")) {
             maxWordLengthInt = Integer.parseInt(maxWordLength);
         }
-        words = seedService.getWordsFromSeed(name, wordsNumber, firstSignAsInInput, lastSignAsInInput, sorted, minWordLengthInt, maxWordLengthInt);
+        wordsNumberInt = Integer.parseInt(wordsNumber);
+        words = seedService.getWordsFromSeed(name, wordsNumberInt, firstSignAsInInput, lastSignAsInInput, sorted, minWordLengthInt, maxWordLengthInt);
         model.addAttribute("words", words);
 
         seedsNames = seedService.getSeedsNames();
