@@ -66,7 +66,7 @@
                 </div>
                 <div id="output">
                     <#list model["words"] as word>
-                        ${word}<br>
+                        ${word}<br />
                     </#list>
                 </div>
             </section>
