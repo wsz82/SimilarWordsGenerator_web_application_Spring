@@ -65,11 +65,9 @@
                     </form>
                 </div>
                 <div id="output">
-                    <ul style="list-style-type:none;">
                     <#list model["words"] as word>
-                        <li>${word}</li>
+                        ${word}<br>
                     </#list>
-                    </ul>
                 </div>
             </section>
             <aside id="side_bar">
