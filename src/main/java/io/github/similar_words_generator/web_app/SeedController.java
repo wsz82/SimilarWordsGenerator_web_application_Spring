@@ -32,7 +32,7 @@ public class SeedController implements ErrorController {
     @GetMapping("/seeds")
     public String getWordsFromSeed(@ModelAttribute("model") ModelMap model,
                                    @RequestParam(value = "name") String name,
-                                   @RequestParam(value = "words", defaultValue = "10") String wordsNumber,
+                                   @RequestParam(value = "words", defaultValue = "7") String wordsNumber,
                                    @RequestParam(value = "firstSignAsInInput", defaultValue = "false") boolean firstSignAsInInput,
                                    @RequestParam(value = "lastSignAsInInput", defaultValue = "false") boolean lastSignAsInInput,
                                    @RequestParam(value = "sorted", defaultValue = "false") boolean sorted,

@@ -34,7 +34,7 @@
                             </div>
                             <div class="input">
                                 <label for="words">Number of words:</label>
-                                <input name="words" id="words" value="10">
+                                <input name="words" id="words" value="7">
                             </div>
                             <div class="input">
                                 <label for="firstSignAsInInput">Put first sign as in input?</label>
