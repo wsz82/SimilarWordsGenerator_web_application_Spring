@@ -23,15 +23,17 @@ document.getElementById("minWordLength").addEventListener("focus", function() {
 
 document.getElementById("minWordLength").addEventListener("change", function() {
     var minWordLength;
+    var maxWordLength;
 
     minWordLength = document.getElementById("minWordLength").value;
+    maxWordLength = document.getElementById("maxWordLength").value;
     if (!(minWordLength == "default")) {
         minWordLength = parseInt(minWordLength);
     }
 
     document.getElementById("minWordLength").value = minWordLength;
 
-    if ((isNaN(minWordLength) || minWordLength == "default") || minWordLength < 1) {
+    if ((isNaN(minWordLength) || minWordLength == "default") || minWordLength < 1 || minWordLength > maxWordLength) {
         document.getElementById("minWordLength").value = minWordLengthInputInit;
     }
 });
@@ -42,15 +44,17 @@ document.getElementById("maxWordLength").addEventListener("focus", function() {
 
 document.getElementById("maxWordLength").addEventListener("change", function() {
     var maxWordLength;
+    var minWordLength;
 
     maxWordLength = document.getElementById("maxWordLength").value;
+    minWordLength = document.getElementById("minWordLength").value;
     if (!(maxWordLength == "default")) {
         maxWordLength = parseInt(maxWordLength);
     }
 
     document.getElementById("maxWordLength").value = maxWordLength;
 
-    if ((isNaN(maxWordLength) || maxWordLength == "default") || maxWordLength < 1) {
+    if ((isNaN(maxWordLength) || maxWordLength == "default") || maxWordLength < 1 || maxWordLength < minWordLength) {
         document.getElementById("maxWordLength").value = maxWordLengthInputInit;
     }
 });
