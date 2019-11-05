@@ -80,5 +80,6 @@
             </ul>
         </footer>
         <script type="text/javascript" src="javascript-custom-select.js"></script>
+        <script type="text/javascript" src="javascript-input-correction.js"></script>
     </body>
 </html>

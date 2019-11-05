@@ -47,9 +47,9 @@ html {
 }
 
 body {
-    min-height: 100%;
-    max-width: 100%;
-    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 
     background-image: url("background.png");    /*Image credits: Author: NZdawghaus, Source: Nexusmods*/
     background-size: 100%;
