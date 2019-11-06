@@ -1,5 +1,5 @@
 function resetForm() {
-    document.getElementById("words").value = '10';
+    document.getElementById("words").value = '7';
     document.getElementById("firstSignAsInInput").checked = true;
     document.getElementById("lastSignAsInInput").checked = true;
     document.getElementById("sorted").checked = true;
