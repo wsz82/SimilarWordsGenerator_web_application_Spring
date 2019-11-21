@@ -47,7 +47,7 @@
                             </div>
                             <div class="input">
                                 <label for="sorted">Sort output?</label>
-                                <input type="checkbox" name="sorted" id="sorted" value="true" ${model.ifSortedChecked}>
+                                <input type="checkbox" name="sorted" id="sorted" value="true" onclick="sortUnsort();" ${model.ifSortedChecked}>
                             </div>
                             <div class="input">
                                 <label for="minWordLength">Min. word length:</label>
@@ -66,7 +66,8 @@
                 </div>
                 <div id="output">
                     <#list model["words"] as word>
-                        ${word}<br />
+                        ${word}
+                        <#sep><br />
                     </#list>
                 </div>
             </section>
@@ -88,5 +89,6 @@
         <script type="text/javascript" src="javascript-reset-form.js"></script>
         <script type="text/javascript" src="javascript-custom-select.js"></script>
         <script type="text/javascript" src="javascript-input-correction.js"></script>
+        <script type="text/javascript" src="javascript-sort-button.js"></script>
     </body>
 </html>
