@@ -46,7 +46,7 @@
                             </div>
                             <div class="input">
                                 <label for="sorted">Sort output?</label>
-                                <input type="checkbox" name="sorted" id="sorted" value="true" checked>
+                                <input type="checkbox" name="sorted" id="sorted" value="false">
                             </div>
                             <div class="input">
                                 <label for="minWordLength">Min. word length:</label>
